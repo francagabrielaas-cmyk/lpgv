@@ -647,6 +647,7 @@ iframe {
 .footer {
   background: var(--gray-200);
   padding: 48px 0 24px;
+  overflow-x: hidden;
 }
 
 .footer-inner {
@@ -658,6 +659,8 @@ iframe {
   margin-bottom: 32px;
   padding-bottom: 32px;
   border-bottom: 1px solid var(--border);
+  min-width: 0;
+  width: 100%;
 }
 
 .footer-logo {
@@ -674,6 +677,9 @@ iframe {
 .footer-links {
   display: flex;
   gap: 24px;
+  flex-wrap: wrap;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .footer-links a {
@@ -681,6 +687,7 @@ iframe {
   text-decoration: none;
   font-weight: 500;
   transition: color var(--transition);
+  min-width: 0;
 }
 
 .footer-links a:hover {
@@ -759,20 +766,54 @@ iframe {
   }
 
   .brand-ticker-track {
-    animation-duration: 24s;
+    width: 100%;
+    animation: none;
   }
 
   .brand-ticker-group {
-    gap: 24px;
+    gap: 20px;
+  }
+
+  .brand-ticker-group[aria-hidden="true"] {
+    display: none;
   }
 
   .brand-ticker-group span::after {
-    margin-left: 24px;
+    margin-left: 20px;
   }
 
   .footer-inner {
     flex-direction: column;
     text-align: center;
+    align-items: stretch;
+  }
+
+  .footer-links {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    justify-content: stretch;
+    justify-items: center;
+    gap: 12px 10px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .footer-links a {
+    white-space: normal;
+    padding: 10px 6px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 16px;
   }
 }
 

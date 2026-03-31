@@ -52,6 +52,11 @@ body {
   overflow-x: hidden;
 }
 
+img,
+iframe {
+  max-width: 100%;
+}
+
 .container {
   width: 100%;
   max-width: 1200px;
@@ -708,6 +713,20 @@ body {
 
 
 @media (max-width: 768px) {
+  .header {
+    backdrop-filter: none;
+    background: rgba(250, 251, 252, 0.98);
+  }
+
+  .hero {
+    min-height: auto;
+    padding: 108px 0 56px;
+  }
+
+  .hero-scroll {
+    display: none;
+  }
+
   .nav {
     display: none;
   }
@@ -737,6 +756,18 @@ body {
 
   .cta-actions {
     justify-content: center;
+  }
+
+  .brand-ticker-track {
+    animation-duration: 24s;
+  }
+
+  .brand-ticker-group {
+    gap: 24px;
+  }
+
+  .brand-ticker-group span::after {
+    margin-left: 24px;
   }
 
   .footer-inner {

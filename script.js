@@ -8,6 +8,7 @@
 
   // Header scroll effect
   function onScroll() {
+    if (!header) return;
     if (window.scrollY > 20) {
       header.classList.add('scrolled');
     } else {
@@ -61,4 +62,50 @@
       }
     });
   });
+
+  // Banner de cookies (LGPD)
+  (function cookieBanner() {
+    var storageKey = 'gvlog_cookie_consent';
+    var banner = document.getElementById('cookie-banner');
+    if (!banner) return;
+
+    function hideBanner() {
+      banner.setAttribute('hidden', '');
+      banner.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('show-cookie-banner');
+    }
+
+    if (localStorage.getItem(storageKey)) {
+      hideBanner();
+      return;
+    }
+
+    banner.removeAttribute('hidden');
+    banner.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('show-cookie-banner');
+
+    var btnAccept = document.getElementById('cookie-accept');
+    var btnReject = document.getElementById('cookie-reject');
+
+    function saveChoice(value) {
+      try {
+        localStorage.setItem(storageKey, value);
+      } catch (e) {
+        /* ignore */
+      }
+      hideBanner();
+      document.dispatchEvent(new CustomEvent('gvlog:cookie-consent', { detail: { value: value } }));
+    }
+
+    if (btnAccept) {
+      btnAccept.addEventListener('click', function () {
+        saveChoice('accepted');
+      });
+    }
+    if (btnReject) {
+      btnReject.addEventListener('click', function () {
+        saveChoice('rejected');
+      });
+    }
+  })();
 })();

@@ -703,6 +703,91 @@ iframe {
   color: var(--text-secondary);
 }
 
+.footer-legal {
+  margin-top: 10px;
+}
+
+.footer-legal a {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.footer-legal a:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
+/* ===== Página legal (privacidade) ===== */
+.legal-page .legal-main {
+  padding: 120px 0 64px;
+}
+
+.legal-title {
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+
+.legal-updated {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 32px;
+}
+
+.legal-block {
+  margin-bottom: 28px;
+}
+
+.legal-block h2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--accent);
+}
+
+.legal-block p,
+.legal-block li {
+  color: var(--text-secondary);
+  font-size: 0.98rem;
+}
+
+.legal-block ul {
+  margin: 10px 0 0 1.25rem;
+}
+
+.legal-block li {
+  margin-bottom: 8px;
+}
+
+.legal-block a {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.legal-back-wrap {
+  margin-top: 40px;
+}
+
+.legal-back {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.legal-back:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .legal-page .legal-main {
+    padding: 108px 0 48px;
+  }
+}
+
 /* ===== Responsivo ===== */
 @media (max-width: 992px) {
   .hero-content {
